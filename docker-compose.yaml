@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: vue-frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: node-backend
+    env_file:
+    - ./backend/.env
+    ports:
+    - "3000:3000" 
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
