@@ -47,3 +47,6 @@ This project is made for fullstack-test in Clicknext company.
     docker-compose up --build -d
     docker-compose up -d
 
+# Visit website
+
+    http://localhost:8080
