@@ -3,6 +3,10 @@
 
 This project is made for fullstack-test in Clicknext company.
 
+# Version 
+    Node version v20.17.0
+    Vuejs version v3.5.21
+
 # How to get start project
 
 # Frontend 
